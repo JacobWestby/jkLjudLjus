@@ -26,7 +26,7 @@
       .page_title {
         text-align: right;
 
-        text-decoration: underline;
+        /* text-decoration: underline;*/
 
         margin-top: 6px;
       }
@@ -69,16 +69,16 @@
 
       /* The rounded box for client and delivery details */
 
-      .details_box {
+      .details_box_left {
         padding-left: 6px;
-
-        border: 1px solid #aaa;
 
         border-radius: 6px;
 
-        background-color: #eee;
-
         font-size: 0.9em;
+      }
+
+      .details_box_right {
+
       }
 
       /* A label for a field */
@@ -92,9 +92,7 @@
       /* The grid we are using to show items */
 
       .item_grid {
-        border: 1px solid #777;
 
-        border-radius: 6px;
 
         margin-left: auto;
 
@@ -106,31 +104,27 @@
       /* The blank line between items and totals in the grid */
 
       .item_grid_break {
-        border-bottom: 1px solid #777;
       }
 
       /* The header row in the item grid */
 
       .item_grid th {
-        background: #ddd;
+       
       }
 
       /* Set the left border on certain item cells */
 
       .item_grid td:not(:first-child) {
-        border-left: 1px solid #777;
       }
 
       /* Set the stripes in the item grid */
 
       .item_grid tr.item_row:nth-child(odd) {
-        background-color: rgba(0, 0, 0, 0.05);
       }
 
       /* Make sure last item has a bottom border*/
 
       .item_grid tr:last-child td {
-        border-bottom: 1px solid #777;
       }
 
       /* The row counter */
@@ -269,8 +263,18 @@
         text-align: center;
 
         font-size: 0.8em;
+      }
 
-        background: #fff;
+      /* BODY */
+
+      body {
+        width: 70%;
+        margin: 0 auto;
+      }
+
+      /* TEST */
+      .test {
+        margin-right: 10vw;
       }
 
       /* What to show when showing on screen */
@@ -309,7 +313,6 @@
         .pagebreak {
           display: none !important;
 
-          border-top: 5px double #8c8b8b;
         }
       }
     </style>
@@ -326,7 +329,6 @@
       /* Set the right border on certain item cells */
 
       .item_grid td:not(:last-child) {
-        border-right: 1px solid #777;
       }
 
       /* Remove the left border as we are doing right */
@@ -349,28 +351,8 @@
             </td>
 
             <td align="right" valign="top">
-              <h1 class="page_title">OFFERT</h1>
+              <h1 class="page_title">Fakturaspecifiktaion</h1>
             </td>
-          </tr>
-
-          <tr>
-            <td align="right" style="font-size: 1.2em" valign="bottom"><span name="job:job_name">{{job.job_name}}</span></td>
-          </tr>
-
-          <tr>
-            <td colspan="3">&nbsp;</td>
-          </tr>
-
-          <tr>
-            <td colspan="2"><span class="label">Jobbnummer: </span><span name="job:reference">{{job.reference}}</span></td>
-
-            <td align="right"><span class="label">Utskriftsdatum:</span> <span name="general:date">{{general.date}}</span></td>
-          </tr>
-
-          <tr>
-            <td colspan="2">&nbsp;</td>
-
-            <td align="right">Utf&auml;rdad av&nbsp;<span name="job:user">{{job.user}}</span></td>
           </tr>
         </tbody>
       </table>
@@ -380,96 +362,116 @@
       <table cellpadding="0" cellspacing="0" width="100%">
         <tbody>
           <tr>
-            <td align="left" class="details_box" valign="top" width="50%">
+            <td align="left" class="details_box_left" valign="top" width="50%">
               <table width="100%">
                 <tbody>
                   <tr>
-                    <td class="label" style="min-width: 95px; width: 95px">NAMN:</td>
-
+                    <td colspan="2"><span class="label" id="kund">Kund </td>
+                  </tr>
+                  <tr>
                     <td><span name="job:name">{{job.name}}</span></td>
                   </tr>
 
                   <tr>
-                    <td class="label">F&Ouml;RETAG:</td>
-
                     <td><span name="job:company">{{job.company}}</span></td>
                   </tr>
 
                   <tr>
-                    <td class="label" valign="top">ADRESS:</td>
-
-                    <td><span name="job:address" style="display: block; overflow: auto">{{job.address}}</span></td>
+                    <td><span name="job:address" style="display: block; overflow: auto">{{job.invoice_address}}</span></td>
                   </tr>
-
+                  
                   <tr>
-                    <td class="label" valign="top">TELEFON:</td>
+                      <td><span name="job:telephone" style="display: block; overflow: auto">{{job.email}}</span></td>
+                    </tr>
+                </td>
+            </tbody>
 
-                    <td><span name="job:telephone" style="display: block; overflow: auto">{{job.telephone}}</span></td>
-                  </tr>
+
+                    <td align="left" class="details_box_right" valign="top" width="100%">
+                        <table width="100%">
+                          <tbody>
+                            <tr>
+                              <td class="label" style="min-width: 165px; width: 165px">Fakturanummer</td>
+                              
+          
+                              <td><span name="job:venue">{{invoice.description}}</span></td>
+                           
+                              <td class="test"><span>Jobbnummer</span></td>
+
+                              <td><span>{{jobb.reference}}</span></td>
+                             </tr>
+          
+                            <tr>
+                              <td class="label" valign="top">Fakturadatum</td>
+          
+                              <td><span name="job:venue_address" style="display: block; overflow: auto">{{invoice.tax_point}}</span></td>
+                        
+
+
+                              <td><span>Projektnamn</span></td>
+
+                              <td><span>{{job.job_name}}</span></td>
+                            </tr>
+          
+                            <tr>
+                              <td class="label">Förfallodag</td>
+          
+                              <td><span name="job:venue_telephone">{{invoice.due_date}}</span></td>
+                       
+                          
+                              <td><span>Period</span></td>
+
+                              <td><span>{{job.job_start}}</span></td>
+                            </tr>
+                            
+                            <tr>
+                                 <td><span></span></td>
+                               <td><span></span></td>
+                            
+                                <td><span>Betalningsvillkor</span></td>
+
+                              <td><span>{{invoice.terms}}</span></td>
+                            </tr>
+                        
+                            <tr>
+                               <td><span></span></td>
+                               <td><span></span></td>
+
+                                <td><span>Kundnummer</span></td>
+
+                              <td><span>{{invoice.client_ref}}</span></td>
+                            </tr>
                 </tbody>
               </table>
-            </td>
 
             <td>&nbsp;&nbsp;</td>
-
-            <td align="left" class="details_box" valign="top" width="50%">
-              <table width="100%">
-                <tbody>
-                  <tr>
-                    <td class="label" style="min-width: 165px; width: 165px">LEVERANS TILL:</td>
-
-                    <td><span name="job:venue">{{job.venue}}</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class="label" valign="top">LEVERANSADDRESS:</td>
-
-                    <td><span name="job:venue_address" style="display: block; overflow: auto">{{job.venue_address}}</span></td>
-                  </tr>
-
-                  <tr>
-                    <td class="label">TELEFON:</td>
-
-                    <td><span name="job:venue_telephone">{{job.venue_telephone}}</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </tbody>
-      </table>
 
       <table style="margin-top: 10px" width="100%">
         <tbody>
           <tr>
             <td style="font-size: 1.15em; padding-bottom: 4px">
-              Hyresperiod:&nbsp;<span name="job:duration_days">{{job.duration_days}}</span>&nbsp;dag(ar):&nbsp;<span name="job:job_start">{{job.job_start}}</span>&nbsp;--&gt;&nbsp;<span
-                name="job:job_end"
-                >{{job.job_end}}</span
-              >
+              Artiklar för uthyrning:
             </td>
-          </tr>
-
-          <tr>
-            <td>Datum ut:&nbsp;<span name="job:out_datetime">{{job.out_datetime}}</span></td>
-          </tr>
-
-          <tr>
-            <td>Datum in:&nbsp;<span name="job:return_datetime">{{job.return_datetime}}</span></td>
           </tr>
         </tbody>
       </table>
 
-      <div style="height: 6px">&nbsp;</div>
+      <div style="height: 2px; width: 100%; background-color: #000; margin-bottom: 1vh;"></div>
 
       <table cellspacing="0" class="item_grid" style="table-layout: auto" width="100%">
         <tbody>
           <tr>
-            <th class="item_grid_break" style="width: 100%">Beskrivning</th>
-
-            <th class="item_grid_break" style="min-width: 95px" width="95">Pris</th>
+            <th class="item_grid_break">Beskrivning</th>
+            <th class="item_grid_break">Pris</th>
+            <th class="item_grid_break">Antal</th>
           </tr>
+          </tbody>
+        </table>
+        <div style="height: 2px; width: 100%; background-color: #000; margin-top: 1vh;"></div>
 
+          
+          <table cellspacing="0" class="item_grid" style="table-layout: auto" width="100%">
+            <tbody>
           <tr class="item_row" name="items_headings:">
             <td class="indent">
               <span name="items_headings:qty">{{items_headings.qty}}</span><span name="items_headings:name">{{items_headings.name}}</span>
