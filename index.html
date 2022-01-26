@@ -41,7 +41,6 @@
         width: auto;
 
         height: auto;
-
       }
 
       /* The logo img element */
@@ -54,7 +53,6 @@
         width: auto;
 
         height: auto;
-
       }
 
       /* The details about the invoice */
@@ -85,15 +83,14 @@
       /* A label for a field */
 
       .label {
-
         white-space: nowrap;
+        font-weight: bold;
+        font-size: 0.9rem;
       }
 
       /* The grid we are using to show items */
 
       .item_grid {
-
-
         margin-left: auto;
 
         margin-right: auto;
@@ -109,7 +106,6 @@
       /* The header row in the item grid */
 
       .item_grid th {
-       
       }
 
       /* Set the left border on certain item cells */
@@ -145,7 +141,9 @@
 
       .total {
         border-top: 2px solid black;
+
         padding: 10px 0;
+
         border-bottom: 2px solid black;
       }
 
@@ -280,7 +278,8 @@
       /* BODY */
 
       body {
-        width: 60%;
+        width: 55%;
+
         margin: 0 auto;
       }
 
@@ -319,7 +318,6 @@
 
         .pagebreak {
           display: none !important;
-
         }
       }
     </style>
@@ -347,14 +345,14 @@
   </head>
 
   <body>
-    <div id="header" style="padding-bottom: 6px;">
+    <div id="header" style="padding-bottom: 6px">
       <table cellpadding="0" cellspacing="0" width="100%">
         <tbody>
           <tr>
             <td align="left" rowspan="0" style="width: 146px" valign="top"><img class="img_logo" name="user:logo_url" src="/images/logo.png" /></td>
 
             <td align="right" valign="top">
-              <h1 class="page_title">Fakturaspecifiktaion</h1>
+              <h2 class="page_title">Fakturaspecifikation</h2>
             </td>
           </tr>
         </tbody>
@@ -362,137 +360,176 @@
     </div>
 
     <div id="body">
-      <table cellpadding="0" cellspacing="0" width="100%" style="margin-top: 10vh; margin-bottom: 3vh;">
+      <table cellpadding="0" cellspacing="0" style="margin-top: 7vh; margin-bottom: 2vh" width="100%">
         <tbody>
           <tr>
-                <tbody>
-                  <tr>
-                    <td colspan="2" style="padding-bottom: 3vh;"><span class="label" id="kund">Kund </td>
-                  </tr>
-                  <tr>
-                    <td><span name="job:name">{{job.name}}</span></td>
-                  </tr>
+            <td colspan="2" style="padding-bottom: 1vh"><span class="label" id="kund">Kund </span></td>
+          </tr>
 
-                  <tr>
-                    <td><span name="job:company">{{job.company}}</span></td>
-                  </tr>
+          <tr>
+            <td><span name="job:name">{{job.name}}</span></td>
+          </tr>
 
-                  <tr>
-                    <td><span name="job:invoice_address" style="display: block; overflow: auto">{{job.invoice_address}}</span></td>
-                  </tr>
-                  
-                  <tr>
-                      <td><span name="job:email" style="display: block; overflow: auto">{{job.email}}</span></td>
-                    </tr>
-            </tbody>
+          <tr>
+            <td><span name="job:company">{{job.company}}</span></td>
+          </tr>
 
+          <tr>
+            <td><span name="job:invoice_address" style="display: block; overflow: auto">{{job.invoice_address}}</span></td>
+          </tr>
+        </tbody>
+      </table>
 
+      <table style="margin-top: 5vh; float: left">
+        <tbody>
+          <tr>
+            <td class="label" valign="top">Fakturanummer:</td>
 
-                      <table style="margin-top: 10vh; float: left;">
-                        <tbody>
-                          <tr>
-                            <td class="label" valign="top">Fakturanummer:</td>
-                            <td><span name="invoice:description" style="display: block; overflow: auto">{{invoice.description}}</span></td>
-                          </tr>
-                      
-                          <tr>
-                            <td class="label" valign="top">Fakturadatum:</td>
-                            <td><span name="invoice:tax_point" style="display: block; overflow: auto">{{invoice.tax_point}}</span></td>
-                          </tr>
-                      
-                          <tr>
-                            <td class="label" valign="top">Förfallodag:</td>
-                            <td><span name="invoice:due_date" style="display: block; overflow: auto">{{invoice.due_date}}</span></td>
-                          </tr>
-                        </tbody>
-                      </table>
+            <td><span name="invoice:description" style="display: block; overflow: auto">{{invoice.description}}</span></td>
+          </tr>
 
-                      <table style="float: right; margin-top: 10vh;">
-                        <tbody>
-                          <tr>
-                            <td><span>Jobbnummer:</span></td>
-                            <td><span name="job:reference" style="display: block; overflow: auto">{{jobb.reference}}</span></td>
-                          </tr>
-                          <tr>
-                            <td><span>Projektnamn:</span></td>
-                            <td><span name="job:job_name" style="display: block; overflow: auto">{{job.job_name}}</span></td>
-                          </tr>
-                          <tr>
-                            <td><span>Period:</span></td>
-                            <td><span name="job:job_start" style="display: block; overflow: auto">{{job.job_start}}</span></td>
-                          </tr>
-                          <tr>
-                            <td><span>Betalningsvillkor:</span></td>
-                            <td><span name="invoice:terms" style="display: block; overflow: auto">{{invoice.terms}}</span></td>
-                          </tr>
-                          <tr>
-                            <td><span>Kundnummer:</span></td>
-                            <td><span name="invoice:client_ref" style="display: block; overflow: auto">{{invoice.client_ref}}</span></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      
-            <td>&nbsp;&nbsp;</td>
+          <tr>
+            <td class="label" valign="top">Fakturadatum:</td>
+
+            <td><span name="invoice:tax_point" style="display: block; overflow: auto">{{invoice.tax_point}}</span></td>
+          </tr>
+
+          <tr>
+            <td class="label" valign="top">F&ouml;rfallodag:</td>
+
+            <td><span name="invoice:due_date" style="display: block; overflow: auto">{{invoice.due_date}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table style="float: right; margin-top: 5vh">
+        <tbody>
+          <tr>
+            <td><span class="label">Jobbnummer:</span></td>
+
+            <td><span name="job:reference" style="display: block; overflow: auto">{{job.reference}}</span></td>
+          </tr>
+
+          <tr>
+            <td><span class="label">Projektnamn:</span></td>
+
+            <td><span name="job:job_name" style="display: block; overflow: auto">{{job.job_name}}</span></td>
+          </tr>
+
+          <tr>
+            <td><span class="label">Period:</span></td>
+
+            <td><span name="job:job_start" style="display: block; overflow: auto">{{job.job_start}}</span>&nbsp;-&nbsp;<span name="job:job_end">{{job.job_end}}</span></td>
+          </tr>
+
+          <tr>
+            <td><span class="label">Betalningsvillkor:</span></td>
+
+            <td>30&nbsp;dagar</td>
+          </tr>
+
+          <tr>
+            <td><span class="label">Kundnummer:</span></td>
+
+            <td><span name="invoice:client_ref" style="display: block; overflow: auto">{{invoice.client_ref}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      &nbsp;&nbsp;
+
       <table style="margin-top: 10px" width="100%">
         <tbody>
           <tr>
-            <td style="font-size: 1.15em; padding-bottom: 4px; font-weight: bold;">
-              Artiklar för uthyrning:
-            </td>
+            <td style="font-size: 0.9em; padding-bottom: 4px; font-weight: bold">Artiklar f&ouml;r uthyrning:</td>
           </tr>
         </tbody>
       </table>
 
-      <div style="height: 2px; width: 100%; background-color: #000; margin-bottom: 1vh;"></div>
+      <div style="height: 2px; width: 100%; background-color: #000; margin-bottom: 1vh">&nbsp;</div>
 
-      <table cellspacing="3" class="item_grid" style="table-layout: auto; float: left;">
+      <table cellpadding="0" cellspacing="0" class="item_grid" style="min-height: 560px; height: 560px" width="100%">
+        <!--Do a <thead> so if page wraps, this will go on the next page-->
+
+        <thead>
+          <tr style="background: #fff; height: 20px">
+            <th width="30">&nbsp;</th>
+
+            <th style="text-align: left">Beskrivning</th>
+
+            <th width="auto" style="text-align: right">Antal</th>
+
+            <th width="auto" style="text-align: right">Pris</th>
+
+            <th width="auto" style="text-align: right">Summa</th>
+          </tr>
+        </thead>
+
+        <!--The <tbody> of all the rest that will wrap pages if needed-->
+
         <tbody>
+          <tr class="inv_items" name="invoice_items:" style="height: 20px">
+            <td valign="top" width="30">&nbsp;</td>
+
+            <td class="indent"><span class="item_cell" name="invoice_items:description">{{invoice_items.description}}</span></td>
+
+            <td style="text-align: right"><span class="item_cell" name="invoice_items:qty">{{invoice_items.qty}}</span></td>
+
+            <td style="text-align: right"><span class="item_cell" name="invoice_items:unit_price">{{invoice_items.unit_price}}</span></td>
+
+            <td style="text-align: right"><span class="item_cell" name="invoice_items:net">{{invoice_items.net}}</span></td>
+          </tr>
+
           <tr>
-            <th style="font-weight: normal" class="item_grid_break">Beskrivning</th>
+            <!--This fills the empty space-->
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
+
+            <td class="item_cell" style="border-bottom-width: 1px">&nbsp;</td>
           </tr>
         </tbody>
       </table>
-      
-      <table cellspacing="3" class="item_grid" style="margin-right: 1vw;">
-        <tbody>
-          <tr>
-            <th style="font-weight: normal; width: 200px;" class="item_grid_break">Antal</th>
-            <th style="font-weight: normal; width: 200px" class="item_grid_break">Pris</th>
-            <th style="font-weight: normal; width: 200px" class="item_grid_break">Summa</th>
-        </tr>
-        </tbody>
-      </table>
-      
-      <div style="height: 2px; width: 100%; background-color: #000; margin-top: 1vh;"></div>
 
-          
+      <div style="height: 2px; width: 100%; background-color: #000; margin-top: 1vh">&nbsp;</div>
+
       <table cellspacing="3" class="item_grid" style="table-layout: auto; float: left">
         <tbody>
           <tr class="item_row" name="items_headings:">
-            <td class="indent">
-              <span name="invoice_items:description">{{invoice_items.description}}</span>
-            </td>
+            <td class="indent">&nbsp;</td>
           </tr>
         </tbody>
       </table>
-  
+
       <table cellspacing="3" class="item_grid" style="table-layout: auto; margin-right: 2vw">
         <tbody>
           <tr>
-            <td style="width: 180px" valign="top"><span name="invoice_items:qty" >{{invoice_items.qty}}</span></td>
-            <td style="width: 230px" valign="top"><span name="invoice_items:unit_price" >{{invoice_items.unit_price}}</span></td>
-            <td style="width: 130px" valign="top"><span name="invoice_items:net" >{{invoice_items.net}}</span></td>
+            <td style="width: 180px" valign="top">&nbsp;</td>
+
+            <td style="width: 230px" valign="top">&nbsp;</td>
+
+            <td style="width: 130px" valign="top">&nbsp;</td>
           </tr>
+
           <tr>
             <td class="item_grid_break" colspan="5">&nbsp;</td>
           </tr>
         </tbody>
       </table>
-      
-      <table style="float: right;" class="total">
+
+      <table class="total" style="float: right">
         <tbody>
           <tr>
-            <td align="right" class="label">pris ex moms:</td>
+            <td align="right" class="label">Pris exkl. moms:</td>
 
             <td><span name="invoice:net">{{invoice.net}}</span></td>
           </tr>
@@ -504,14 +541,12 @@
           </tr>
 
           <tr>
-            <td align="right" class="label">Pris ink moms:</td>
+            <td align="right" class="label">Pris inkl. moms:</td>
 
             <td><span name="invoice:total">{{invoice.total}}</span></td>
           </tr>
         </tbody>
       </table>
-
-      
 
       <div style="height: 6px">&nbsp;</div>
 
@@ -525,6 +560,7 @@
         </tbody>
       </table>
 
-    <div class="footer">&nbsp;</div>
+      <div class="footer">&nbsp;</div>
+    </div>
   </body>
 </html>
