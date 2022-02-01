@@ -278,7 +278,7 @@
       /* BODY */
 
       body {
-        width: 55%;
+        width: 80%;
 
         margin: 0 auto;
       }
@@ -453,13 +453,12 @@
 
         <thead>
           <tr style="background: #fff; height: 20px">
-            <th width="30">&nbsp;</th>
-
             <th style="text-align: left">Beskrivning</th>
 
             <th width="auto" style="text-align: right">Antal</th>
 
             <th width="auto" style="text-align: right">Pris</th>
+            <th colspan="4"><span></span></th>
 
             <th width="auto" style="text-align: right">Summa</th>
           </tr>
@@ -469,13 +468,12 @@
 
         <tbody>
           <tr class="inv_items" name="invoice_items:" style="height: 20px">
-            <td valign="top" width="30">&nbsp;</td>
-
             <td class="indent"><span class="item_cell" name="invoice_items:description">{{invoice_items.description}}</span></td>
 
             <td style="text-align: right"><span class="item_cell" name="invoice_items:qty">{{invoice_items.qty}}</span></td>
 
             <td style="text-align: right"><span class="item_cell" name="invoice_items:unit_price">{{invoice_items.unit_price}}</span></td>
+            <td colspan="4"><span></span></td>
 
             <td style="text-align: right"><span class="item_cell" name="invoice_items:net">{{invoice_items.net}}</span></td>
           </tr>
